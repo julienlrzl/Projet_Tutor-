@@ -1,0 +1,30 @@
+/*******************************************************************************
+ *
+ * Nom : style.css
+ * Date et auteur :
+ *      Julien Larzul - LE Alexandre
+ *		Créé le 27/09/2023
+ *
+ * Description :
+ *		Fichier CSS de notre site
+ *
+ *******************************************************************************/
+
+ *{
+    box-sizing: border-box;
+ }
+
+ body{
+    font-family : Arial, Helvetica, sans-serif;
+    line-height: 1.5em;
+ }
+
+ header{
+    background-color: #303030;
+    color:white;
+    text-align: center;
+    font-size: 2em;
+    line-height: 1.2em;
+    padding: 10px; /*marge interieur*/
+    margin: 10px; /*marge exterieur*/
+ }
