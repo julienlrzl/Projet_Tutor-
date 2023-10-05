@@ -23,39 +23,37 @@
     line-height: 1.5em;
  }
 
-a{
-   padding: 10px;
- }
-
 /*------------------------------------------------------------------------------------------*/
 /* 2. Header */
 /*------------------------------------------------------------------------------------------*/
 
 /* --------- 2.1 Main_Header --------- */
 
- .container_header{
-   display: flex;
-   justify-content: space-between;
- }
+.no_underline_logo {
+  text-decoration: none;
+  color: black;
+}
 
- .menu{
-   font-size: 0.5em;
- }
-
- .no_underline{
-   text-decoration: none; /*annulation du osulignement d'un lien*/
-   color:#383E42; /*annulation de la couleur bleu et violette*/
- }
-
- .hover-color-change:hover{
-   color: gray;
+.hover-color-change_logo:hover{
+  color: black;
    text-decoration: none;
- }
+}
 
- .logo{
-   margin-left: -300px;
- }
+.menu{
+  display: flex;
+  justify-content: right;
+  font-size: 0.5em;
+}
 
+.no_underline {
+  text-decoration: none;
+  color:#383E42;
+}
+
+.hover-color-change:hover{
+  color: gray;
+   text-decoration: none;
+}
 
 /*------------------------------------------------------------------------------------------*/
 /* 3. Bootstrap Header */

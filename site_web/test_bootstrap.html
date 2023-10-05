@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--link CSS-->
-    <link rel="stylesheet" href="style_bootstrap.css">
     <!-- Add Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--link CSS-->
+    <link rel="stylesheet" href="css/style_bootstrap.css">
     <!--ADD Fonts-->
     <link rel="stylesheet" href="fonts/fontawesome-webfont.svg">
     <link rel="stylesheet" href="fonts/fontawesome-webfont.eot">
@@ -20,22 +20,35 @@
 <body>
     <!--Header-->
     <header>
-        <div class="container_header">
-            <!--Logo-->
-            <div class="logo">
-                <b>NETFLIX</b>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="no_underline_logo hover-color-change_logo" href="#"><b>NETFLIX</b></a>
+
+                <button class="navbar-toggler ml-auto navbar-light" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse menu" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link no_underline hover-color-change" href="#summary">SUMMARY</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link no_underline hover-color-change" href="#actors">ACTORS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link no_underline hover-color-change" href="#trailer">TRAILER</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link no_underline hover-color-change" href="#additional_information">ADDITIONAL INFORMATION</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link no_underline hover-color-change" href="#other_proposals">OTHER PROPOSALS</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <!--End of Logo-->
-            <!--Main Navigation-->
-            <nav class="menu">
-                <a href="#summary" class="no_underline hover-color-change">SUMMARY</a>
-                <a href="#actors" class="no_underline hover-color-change">ACTORS</a>
-                <a href="#trailer" class="no_underline hover-color-change">TRAILER</a>
-                <a href="#additional_information" class="no_underline hover-color-change">ADDITIONAL INFORMATION</a>
-                <a href="#other_proposals" class="no_underline hover-color-change">OTHER PROPOSALS</a>
-            </nav>
-            <!--End of Main Navigation-->
-        </div>
+        </nav>
     </header>
     <!--End of Header-->
 
@@ -43,7 +56,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!--End Bootstrap-->
+    <!--End of Bootstrap-->
 
 </body>
 </html>

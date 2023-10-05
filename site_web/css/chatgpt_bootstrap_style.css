@@ -1,0 +1,146 @@
+/*******************************************************************************
+ *
+ * Nom : style.css
+ * Date et auteur :
+ *      Julien Larzul - LE Alexandre
+ *		Créé le 27/09/2023
+ *
+ * Description :
+ *		Fichier CSS de notre site
+ *
+ *******************************************************************************/
+
+/*------------------------------------------------------------------------------------------*/
+/* 1. General */
+/*------------------------------------------------------------------------------------------*/
+
+*{
+    box-sizing: border-box;
+ }
+
+ body{
+    font-family: "FontAwesome", sans-serif;
+    line-height: 1.5em;
+ }
+
+a{
+   padding: 10px;
+ }
+
+/*------------------------------------------------------------------------------------------*/
+/* 2. Header */
+/*------------------------------------------------------------------------------------------*/
+
+/* --------- 2.1 Main_Header --------- */
+
+
+a{
+    color: red;
+}
+
+.menu{
+    color: gray;
+}
+/*------------------------------------------------------------------------------------------*/
+/* 3. Bootstrap Header */
+/*------------------------------------------------------------------------------------------*/
+
+.container_banner {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping elements when the viewport is narrow */
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px; /* Add some padding for spacing */
+}
+
+.main_nav {
+    flex: 1; /* Take up available horizontal space */
+    text-align: center;
+    margin: 10px; /* Add some margin for spacing */
+}
+
+.title {
+    font-size: 3em;
+    line-height: 1.2em;
+    text-align: left;
+}
+
+/* Adjust the search box styles */
+.search_box {
+    display: flex;
+    justify-content: left;
+    margin-top: 10px;
+    font-size: 10px;
+}
+
+.search-box__input {
+    width: 100%;
+    max-width: 300px; /* Limit the search box width */
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+    color: gray;
+    text-align: center;
+}
+
+.image_banner {
+    flex: 1; /* Take up available horizontal space */
+    text-align: right;
+    margin: 10px; /* Add some margin for spacing */
+    margin-top: 100px;
+    margin-right: 100px;
+}
+
+.image_banner img {
+    max-width: 80%; /* Ensure the image scales with the container */
+    height: auto; /* Maintain the image's aspect ratio */
+    max-height: 733px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .image_banner {
+        margin-right: 0; /* Remove right margin on smaller screens */
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2em; /* Nouvelle taille de police pour les petits écrans */
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar.navbar-expand-lg {
+        position: static;
+    }
+    .navbar-toggler {
+        display: block;
+    }
+    .navbar-collapse {
+        position: absolute;
+        top: 56px; /* Ajustez la valeur selon vos besoins */
+        left: 0; /* Ajustez la valeur selon vos besoins */
+        width: 100%; /* Utilisez toute la largeur de la page */
+        background-color: #fff; /* Couleur d'arrière-plan du menu déroulant */
+        z-index: 1;
+    }
+    .navbar-collapse ul.navbar-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 0; /* Aucune marge à gauche */
+    }
+    .navbar-collapse ul.navbar-nav li.nav-item {
+        border-bottom: 1px solid #ccc; /* Ligne grise entre les éléments du menu */
+        width: 100%;
+    }
+}
+
+@media (min-width: 767px) {
+.test{
+    display: flex;
+    justify-content: right;
+
+}}
