@@ -47,9 +47,7 @@ a{
 
 .container_banner {
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping elements when the viewport is narrow */
     align-items: center;
-    justify-content: space-between;
     padding: 20px; /* Add some padding for spacing */
 }
 

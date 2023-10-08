@@ -1,85 +1,122 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Add Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <!--link CSS-->
-    <link rel="stylesheet" href="css/style_bootstrap.css">
+    <link rel="stylesheet" href="css/style.css" />
     <!--ADD Fonts-->
-    <link rel="stylesheet" href="fonts/fontawesome-webfont.svg">
-    <link rel="stylesheet" href="fonts/fontawesome-webfont.eot">
-    <link rel="stylesheet" href="fonts/fontawesome-webfont.ttf">
-    <link rel="stylesheet" href="fonts/fontawesome-webfont.woff">
-    <link rel="stylesheet" href="fonts/fontawesome-webfont.woff2">
-    <link rel="stylesheet" href="fonts/FontAwesome.otf">
+    <link rel="stylesheet" href="fonts/fontawesome-webfont.svg" />
+    <link rel="stylesheet" href="fonts/fontawesome-webfont.eot" />
+    <link rel="stylesheet" href="fonts/fontawesome-webfont.ttf" />
+    <link rel="stylesheet" href="fonts/fontawesome-webfont.woff" />
+    <link rel="stylesheet" href="fonts/fontawesome-webfont.woff2" />
+    <link rel="stylesheet" href="fonts/FontAwesome.otf" />
 
     <title>Netflix</title>
-</head>
-<body>
+  </head>
+  <body>
     <!--Header-->
     <header>
-        <!-- 
+      <!-- 
         <nav>: Débute une section de navigation.
         <div class="navbar-expand-lg">: Rend la barre de navigation expansible sur les écrans de taille moyenne et supérieure.
         <div class="navbar-light">: Applique un fond léger à la barre de navigation, adapté aux thèmes de couleur claire.
         -->
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <!--
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <!--
             <div class="container-fluid">: Crée un conteneur fluide qui occupe toute la largeur de l'écran, s'adaptant de manière flexible à la taille de l'appareil.
             -->
-            <div class="container-fluid">
-                <!--
+        <div class="container-fluid">
+          <!--
                 <a class="navbar-brand" href="#">: Crée un lien ou un élément de texte stylisé qui représente généralement le logo ou le nom de la marque dans la barre de navigation.
                 -->
-                <a class="navbar-brand" href="#"><b>NETFLIX</b></a>
+          <a class="navbar-brand" href="#"><b>NETFLIX</b></a>
 
-                <!--
+          <!--
                Crée un bouton de bascule qui permet de masquer ou d'afficher la barre de navigation sur les écrans de petite taille. 
                Lorsque cliqué, il active ou désactive la visibilité des éléments de navigation.
                 -->
-                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+          <button
+            class="navbar-toggler ml-auto"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-                <!--
+          <!--
                 Classe "collapse navbar-collapse": Cette classe est utilisée pour créer une section de contenu de navigation qui peut être masquée ou affichée en fonction de la taille de l'écran. 
                 Elle est généralement associée à un bouton de bascule pour contrôler la visibilité de cette section sur les écrans de petite taille.
                 -->
-                <div class="collapse navbar-collapse menu_nav" id="navbarNav">
-                    <!--
+          <div class="collapse navbar-collapse menu_nav" id="navbarNav">
+            <!--
                     Classe "navbar-nav": Cette classe est utilisée pour définir une liste d'éléments de navigation à l'intérieur de la barre de navigation. 
                     Elle est conçue pour organiser les liens de navigation horizontalement.
                     -->
-                    <ul class="navbar-nav">
-                        <!--
+            <ul class="navbar-nav">
+              <!--
                         Classe "nav-item": Cette classe est utilisée pour marquer un élément de navigation individuel à l'intérieur d'une liste de navigation. 
                         Elle est destinée à styliser et organiser les liens de navigation dans la barre de navigation Bootstrap.
                         -->
-                        <li class="nav-item">
-                            <!--
+              <li class="nav-item">
+                <!--
                             Classe "nav-link": Cette classe est utilisée pour styliser un lien de navigation à l'intérieur d'un élément de navigation (nav-item) dans une liste. 
                             Elle permet de donner un aspect de lien de navigation typique aux éléments de la barre de navigation Bootstrap.
                             -->
-                            <a class="nav-link text_style" href="#summary">SUMMARY</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text_style" href="#actors">ACTORS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text_style" href="#trailer">TRAILER</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text_style" href="#additional_information">ADDITIONAL INFORMATION</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text_style" href="#other_proposals">OTHER PROPOSALS</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+                <a class="nav-link text_style" href="#summary">SUMMARY</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text_style" href="#actors">ACTORS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text_style" href="#trailer">TRAILER</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text_style" href="#additional_information"
+                  >ADDITIONAL INFORMATION</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text_style" href="#other_proposals"
+                  >OTHER PROPOSALS</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!--
+            On ajoute ici dans le header, un texte suivi d'une barre de recherche + image fixe pour le moment
+            La classe "container" est utilisée pour créer un conteneur Bootstrap standard. 
+            Elle centre généralement son contenu horizontalement et gère la largeur maximale.
+            container_banner classe CSS personalisée
+        -->
+      <div class="container container_banner">
+        <div class="main_nav">
+          <h1 class="title">
+            A<br />
+            WIDE<br />
+            SELECTION OF <br />FILMS
+          </h1>
+          <div class="search_box">
+            <input
+              type="text"
+              class="search-box__input"
+              placeholder="Search your movie"
+            />
+          </div>
+        </div>
+        <div class="image_banner">
+          <img src="image/titanic.jpg" alt="image_banner" />
+        </div>
+      </div>
     </header>
     <!--End of Header-->
 
@@ -88,6 +125,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!--End of Bootstrap-->
-
-</body>
+  </body>
 </html>

@@ -14,51 +14,113 @@
 /* 1. General */
 /*------------------------------------------------------------------------------------------*/
 
-*{
-    box-sizing: border-box;
- }
+* {
+  box-sizing: border-box;
+}
 
- body{
-    font-family: "FontAwesome", sans-serif;
-    line-height: 1.5em;
- }
+body {
+  font-family: "FontAwesome", sans-serif;
+  line-height: 1.5em;
+}
 
 /*------------------------------------------------------------------------------------------*/
 /* 2. Header */
 /*------------------------------------------------------------------------------------------*/
 
 /* --------- 2.1 Bootstrap Header --------- */
+/* --------- 2.1.1 Menu Navigation + Logo --------- */
 /*
-   Cela sert à personnaliser davantage le comportement responsive de votre site web au-delà de ce que Bootstrap offre par défaut.
-   Les règles suivantes sont appliquées lorsque la largeur de l'écran est inférieure ou égale à 767px.
-   Cela signifie qu'elles s'appliquent aux écrans de petite taille (mode mobile). 
-*/
+      Cela sert à personnaliser davantage le comportement responsive de votre site web au-delà de ce que Bootstrap offre par défaut.
+      Les règles suivantes sont appliquées lorsque la largeur de l'écran est inférieure ou égale à 767px.
+      Cela signifie qu'elles s'appliquent aux écrans de petite taille (mode mobile). 
+      */
 @media (max-width: 767px) {
   .navbar-collapse {
     top: 56px; /* distance entre le menu déroulant et le haut de la page */
     width: 100%; /* Utilisez toute la largeur de la page */
     background-color: #fff; /* Couleur d'arrière-plan du menu déroulant */
-}
+  }
 
   .navbar-collapse ul.navbar-nav li.nav-item {
     border-bottom: 1px solid #ccc; /* Ligne grise entre les éléments du menu */
     width: 100%;
   }
-  .text_style{
+  .text_style {
     margin-left: 10px;
     font-size: 0.8em;
   }
 }
 /* 
-   Les règles suivantes sont appliquées lorsque la largeur de l'écran est supérieure ou égale à 767px.
-   Cela signifie qu'elles s'appliquent aux écrans de taille moyenne et supérieure (mode bureau).
-*/
+        Les règles suivantes sont appliquées lorsque la largeur de l'écran est supérieure ou égale à 767px.
+        Cela signifie qu'elles s'appliquent aux écrans de taille moyenne et supérieure (mode bureau).
+        */
 @media (min-width: 767px) {
   /* Sert à placer le texte à droite car automatiqument il se met à gauche, et on règle la taille de la police*/
-  .menu_nav{
-      display: flex;
-      justify-content: right;
-      font-size: 0.8em;
-  }}
-  
-  
+  .menu_nav {
+    display: flex;
+    justify-content: right;
+    font-size: 0.8em;
+  }
+}
+
+/* --------- 2.1.2 Text + SearchBox + Image --------- */
+/*
+container bootstrap
+*/
+.container_banner {
+  display: flex;
+  align-items: center;
+}
+
+.main_nav {
+  flex: 1; /* prend l'espace horizontal disponible */
+}
+
+.title {
+  font-size: 2.8em;
+  line-height: 1.2em;
+}
+
+.search_box {
+  margin-top: 10px;
+  font-size: 10px;
+}
+
+.search-box__input {
+  width: 100%;
+  max-width: 300px; /* Limit the search box width */
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+  color: gray;
+  text-align: center;
+}
+
+.image_banner {
+  flex: 1; /* Take up available horizontal space */
+  text-align: right;
+  margin-top: 50px;
+}
+
+.image_banner img {
+  max-width: 80%; /* Ensure the image scales with the container */
+  height: auto; /* Maintain the image's aspect ratio */
+  max-height: 733px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .container_banner {
+    padding: 20px;
+  }
+  .image_banner {
+    margin-right: 0; /* Remove right margin on smaller screens */
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2em; /* Nouvelle taille de police pour les petits écrans */
+  }
+}
