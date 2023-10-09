@@ -88,7 +88,7 @@ container bootstrap
 
 .search-box__input {
   width: 100%;
-  max-width: 300px; /* Limit the search box width */
+  max-width: 300px; /* taille en largeur de la searchbox */
   padding: 10px;
   border: 1px solid #d1d5db;
   border-radius: 5px;
@@ -97,30 +97,37 @@ container bootstrap
 }
 
 .image_banner {
-  flex: 1; /* Take up available horizontal space */
+  flex: 1; /* prend l'espace horizontal disponible */
   text-align: right;
   margin-top: 50px;
 }
 
 .image_banner img {
-  max-width: 80%; /* Ensure the image scales with the container */
-  height: auto; /* Maintain the image's aspect ratio */
+  max-width: 80%;
+  height: auto; /* garder le bon ratio de l'image*/
   max-height: 733px;
 }
 
-/* Responsive adjustments for smaller screens */
+/*
+      Les règles suivantes sont appliquées lorsque la largeur de l'écran est inférieure ou égale à 767px.
+      Cela signifie qu'elles s'appliquent aux écrans de petite taille (mode mobile). 
+      */
 @media (max-width: 768px) {
   .container_banner {
     padding: 20px;
   }
   .image_banner {
-    margin-right: 0; /* Remove right margin on smaller screens */
+    margin-right: 0;
     margin-top: 0;
   }
 }
 
 @media (max-width: 768px) {
   .title {
-    font-size: 2em; /* Nouvelle taille de police pour les petits écrans */
+    font-size: 2em;
   }
 }
+
+/*------------------------------------------------------------------------------------------*/
+/* 3. Summary */
+/*------------------------------------------------------------------------------------------*/
