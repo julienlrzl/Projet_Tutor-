@@ -14,17 +14,19 @@ function Navbar() {
       <div className="leftSide" id={openLinks ? "open" : "close"}>
         <b className="title">NETFLIX</b>
         <div className="hiddenLinks">
-          <Link to="/">SUMMARY</Link>
-          <Link to="/Summary">ACTORS</Link>
-          <Link to="/Actors">TRAILER</Link>
+          <Link to="/">SEARCH</Link>
+          <Link to="/Summary">SUMMARY</Link>
+          <Link to="/Actors">ACTORS</Link>
+          <Link to="/Trailer">TRAILER</Link>
           <Link to="/Information">INFORMATION</Link>
           <Link to="/Proposals">PROPOSALS</Link>
         </div>
       </div>
       <div className="rightSide">
-        <Link to="/">SUMMARY</Link>
-        <Link to="/Summary">ACTORS</Link>
-        <Link to="/Actors">TRAILER</Link>
+        <Link to="/">SEARCH</Link>
+        <Link to="/Summary">SUMMARY</Link>
+        <Link to="/Actors">ACTORS</Link>
+        <Link to="/Trailer">TRAILER</Link>
         <Link to="/Information">INFORMATION</Link>
         <Link to="/Proposals">PROPOSALS</Link>
         <button onClick={toggleNavbar}>

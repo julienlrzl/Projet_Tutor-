@@ -1,6 +1,6 @@
 import "./App.css"; // Importe les styles CSS pour l'application
 import Navbar from "./components/Navbar.js"; // Importe le composant Navbar depuis le fichier Navbar.js
-import Home from "./pages/Home"; // Importe le composant Home depuis le répertoire "pages"
+import Search from "./pages/Search.js"; // Importe le composant Home depuis le répertoire "pages"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"; // Importe les éléments de React Router
 
 // Définition du composant principal de l'application
@@ -17,7 +17,7 @@ function App() {
         première route qui correspond à l'URL actuelle est rendue. */}
         <Switch>
           {/* définit la route pour home */}
-          <Route path="/" exact component={Home} />
+          <Route path="/" exact component={Search} />
         </Switch>
       </Router>
     </div>

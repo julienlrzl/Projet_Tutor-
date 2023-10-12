@@ -1,0 +1,27 @@
+.Search {
+  width: 100%;
+  height: 90vh;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  margin-left: 50px;
+  margin-top: 150px;
+}
+
+.text {
+  font-size: 2.8em;
+  line-height: 1.2em;
+  font-weight: 100;
+}
+
+/* Style de la barre de recherche */
+.input-container {
+    border: 1px solid #ccc; /* Bordure */
+    border-radius: 5px; /* Coins arrondis */
+    padding: 10px; /* Espacement interne */
+    width: 300px; /* Largeur souhaitée */
+  }
