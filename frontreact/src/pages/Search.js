@@ -14,7 +14,9 @@ function Search() {
           FILMS
         </h1>
         <br />
+        <div>
           <SearchBar />
+        </div>
       </div>
     </div>
   );

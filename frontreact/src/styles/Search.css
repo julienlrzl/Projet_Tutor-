@@ -1,15 +1,15 @@
 .Search {
+display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 90vh;
+  height: 75vh;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 .headerContainer {
-  display: flex;
   flex-direction: column;
-  align-items: center; 
-  margin-left: 50px;
-  margin-top: 150px;
+  align-items: center;
 }
 
 .text {
@@ -20,8 +20,17 @@
 
 /* Style de la barre de recherche */
 .input-container {
-    border: 1px solid #ccc; /* Bordure */
-    border-radius: 5px; /* Coins arrondis */
-    padding: 10px; /* Espacement interne */
-    width: 300px; /* Largeur souhaitée */
+  border: 1px solid #ccc; /* Bordure */
+  border-radius: 5px; /* Coins arrondis */
+  padding: 10px; /* Espacement interne */
+  width: 300px; /* Largeur souhaitée */
+}
+
+@media only screen and (max-width: 600px) {
+  .text {
+    font-size: 2em;
   }
+  .input-container {
+    width: 200px; /* Largeur souhaitée */
+  }
+}
