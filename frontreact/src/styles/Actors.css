@@ -1,0 +1,86 @@
+.flex-container1 {
+  resize: horizontal;
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+}
+
+.item1 {
+  margin: 1em;
+  padding: 0.5em;
+  width: auto;
+  min-width: 0;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  margin-top: 95px;
+}
+
+#description {
+  color: #d3d3d3;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+#titleFilm {
+  color: black;
+  text-align: center;
+}
+
+#minus {
+  text-align: center;
+}
+
+.flex-container2 {
+  resize: horizontal;
+  display: flex;
+  flex-direction: row;
+  margin: 1em;
+}
+
+.card {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 20px;
+  width: 330px;
+  min-height: 370px;
+  border-radius: 20px;
+  background: #e8e8e8;
+  box-shadow: 5px 5px 6px #dadada, -5px -5px 6px #f6f6f6;
+  transition: 0.4s;
+  margin-top: 10px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 100;
+}
+
+.card:hover {
+  translate: 0 -10px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(210, 157, 0);
+  margin: 15px 0 0 10px;
+}
+
+.card-image {
+  min-height: 170px;
+  max-width: 150px;
+  background-color: #c9c9c9;
+  border-radius: 15px;
+  box-shadow: inset 8px 8px 10px #c3c3c3, inset -8px -8px 10px #cfcfcf;
+  overflow: hidden;
+}
+
+.card-image img {
+  margin-bottom: -20px;
+  width: 100%; /* Ajuste la largeur de l'image au conteneur */
+  height: 100%; /* Ajuste la hauteur de l'image au conteneur */
+  object-fit: cover; /* Assure que l'image remplit le conteneur tout en préservant son aspect */
+}
+
+.card-body {
+  margin: 13px 0 0 10px;
+  color: rgb(31, 31, 31);
+  font-size: 15px;
+}

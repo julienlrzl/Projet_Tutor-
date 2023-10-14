@@ -36,6 +36,29 @@
   margin-bottom: 15px;
 }
 
+#quote{
+    font-weight: 300;
+    font-size: 1.2em;
+    text-align: right;
+}
+
+#author{
+    font-weight: 400;
+    padding-top: 10px;
+    text-align: right;
+}
+
+.movie{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#movieImage{
+    width: 300px;
+    height: auto;
+}
+
 .summary-button {
   position: relative;
   display: flex;
