@@ -2,6 +2,7 @@ import "./App.css"; // Importe les styles CSS pour l'application
 import NavbarBurger from "./components/NavbarBurger.js";
 import Footer from "./components/Footer.js";
 import Search from "./pages/Search.js"; // Importe le composant Home depuis le répertoire "pages"
+import Summary from "./pages/Summary.js";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"; // Importe les éléments de React Router
 
 // Définition du composant principal de l'application
@@ -17,8 +18,9 @@ function App() {
         {/* utilisé pour déclarer plusieurs routes et s'assure que seule la
         première route qui correspond à l'URL actuelle est rendue. */}
         <Switch>
-          {/* définit la route pour home */}
+          {/* définit la route pour search */}
           <Route path="/" exact component={Search} />
+          <Route path="/Summary" exact component={Summary} />
         </Switch>
         <Footer />
       </Router>

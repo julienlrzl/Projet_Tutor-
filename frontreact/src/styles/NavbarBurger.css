@@ -1,7 +1,6 @@
 .navbarMain {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: space-between;
   position: fixed;
   width: 100%;
@@ -9,6 +8,7 @@
   padding: 1rem;
   color: #383e42;
   font-size: 0.9em;
+  z-index: 99;
 }
 
 .navbarLink:hover {
