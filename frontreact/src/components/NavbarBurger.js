@@ -1,16 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/NavbarBurger.css";
 
 function NavbarBurger() {
+  const [showLinks, setShowLinks] = useState(false);
+  const [scrolling, setScrolling] = useState(false);
 
-const [showLinks, setShowLinks] = useState(false);
-const handleShowLinks = () => {
-    setShowLinks(!showLinks)
-}
+  const handleShowLinks = () => {
+    setShowLinks(!showLinks);
+  };
+
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setScrolling(true);
+    } else {
+      setScrolling(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    // Remove the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <nav className={`navbarMain ${showLinks ? "show-nav" : "hide-nav"}`}>
-      <div className="navbarLogo">NETFLIX</div>
+    <nav
+      className={`navbarMain ${showLinks ? "show-nav" : "hide-nav"} ${
+        scrolling ? "scrolled" : ""
+      }`}
+    >
+      <div className={`navbarLogo ${scrolling ? "scrolled" : ""}`}>NETFLIX</div>
       <ul className="navbarLinks">
         <li className="navbarItem slideInDown-1">
           <a href="/" className="navbarLink">

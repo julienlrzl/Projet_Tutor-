@@ -3,6 +3,11 @@ import "../styles/Actors.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import ImageOmar from "../assets/omarSy.png";
+import ImageToledano from "../assets/toledano.png";
+import ImageNakache from "../assets/nakache.png";
+import ImageCluzet from "../assets/cluzet.png";
+import ImageFleurot from "../assets/fleurot.png";
+import ImageDeMeaux from "../assets/deMeaux.png";
 
 function Actors() {
   return (
@@ -25,35 +30,74 @@ function Actors() {
         </div>
       </div>
       <div className="flex-container2 ">
-        <div class="card item auto">
-          <div class="card-image">
+        <div className="card item auto">
+          <div className="card-image">
             <img src={ImageOmar} alt="Omar Sy PP" />
           </div>
-          <p class="card-title">Omar Sy</p>
-          <p class="card-body">
+          <p className="card-title">Omar Sy</p>
+          <p className="card-body">
             Omar Sy est un acteur, producteur de cinéma, réalisateur, scénariste
             et humoriste français, né le 20 janvier 1978 à Trappes. Il accède à
             la notoriété en formant, avec Fred Testot, le duo comique Omar et
             Fred.
           </p>
         </div>
-        <div class="card item auto">
-          <div class="card-image"></div>
-          <p class="card-title">Olivier Nakache</p>
-          <p class="card-body">
+        <div className="card item auto">
+          <div className="card-image">
+            <img src={ImageNakache} alt="Nakache PP" />
+          </div>
+          <p className="card-title">Olivier Nakache</p>
+          <p className="card-body">
             Olivier Nakache, né le 14 avril 1973 à Suresnes, est un réalisateur,
             scénariste et producteur français. Il travaille en binôme avec Éric
             Toledano. Il est le frère de l'actrice et réalisatrice Géraldine
             Nakache.
           </p>
         </div>
-        <div class="card item auto">
-          <div class="card-image"></div>
-          <p class="card-title">Éric Toledano</p>
-          <p class="card-body">
+        <div className="card item auto">
+          <div className="card-image">
+            <img src={ImageToledano} alt="Toledano PP" />
+          </div>
+          <p className="card-title">Éric Toledano</p>
+          <p className="card-body">
             Éric Toledano est un réalisateur, scénariste et dialoguiste français
             né le 3 juillet 1971 à Paris. Il travaille en binôme avec Olivier
             Nakache à la fois pour l'écriture et la réalisation.
+          </p>
+        </div>
+      </div>
+      <div className="flex-container3">
+        <div className="card item auto">
+          <div className="card-image">
+            <img src={ImageCluzet} alt="Cluzet PP" />
+          </div>
+          <p className="card-title">François Cluzet</p>
+          <p className="card-body">
+            François Cluzet est un acteur français, né le 21 septembre 1955 dans
+            le 9ᵉ arrondissement de Paris.
+          </p>
+        </div>
+        <div className="card item auto">
+          <div className="card-image">
+            <img src={ImageFleurot} alt="Fleurot PP" />
+          </div>
+          <p className="card-title">Audrey Fleurot</p>
+          <p className="card-body">
+            Audrey Fleurot est une actrice française, née le 6 juillet 1977 à
+            Mantes-la-Jolie. Elle se fait connaître, auprès du grand public, par
+            le rôle de la Dame du lac dans Kaamelott. Elle enchaîne avec ceux de
+            Josephine Karlsson dans Engrenages et de Hortense Larcher dans Un
+            village français.
+          </p>
+        </div>
+        <div className="card item auto">
+          <div className="card-image">
+            <img src={ImageDeMeaux} alt="deMeaux PP" />
+          </div>
+          <p className="card-title">Joséphine de Meaux</p>
+          <p className="card-body">
+            Joséphine de Meaux, née le 23 janvier 1977 à Boulogne-Billancourt,
+            est une actrice française.
           </p>
         </div>
       </div>

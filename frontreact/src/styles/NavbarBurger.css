@@ -2,6 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  top: 0;
+  left: 0;
+  right: 0;
   position: fixed;
   width: 100%;
   min-height: 45px;
@@ -9,6 +12,7 @@
   color: #383e42;
   font-size: 0.9em;
   z-index: 99;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .navbarLink:hover {
@@ -161,3 +165,12 @@
     transition: all 1.5s ease-out;
   }
 }
+
+/* Add these styles for the scrolled class */
+.scrolled {
+  background-color: #222; /* Change to your desired background color */
+  color: white; /* Change to your desired text color */
+  min-height: 25px;
+}
+
+

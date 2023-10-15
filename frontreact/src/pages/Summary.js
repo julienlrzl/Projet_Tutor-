@@ -26,7 +26,7 @@ function Summary() {
   }, []);
 
   return (
-    <div class="flex-container">
+    <div className="flex-container">
       {showFirstLast && (
         <div className="item auto">
           <div id="quote">
@@ -40,7 +40,7 @@ function Summary() {
           </div>
         </div>
       )}
-      <div class="item auto">
+      <div className="item auto">
         <div id="description">
           <h3>SUMMARY</h3>
         </div>

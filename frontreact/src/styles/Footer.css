@@ -1,20 +1,26 @@
+.containerFooter {
+  min-height:25vh;
+  position: relative;
+}
+
 .footer {
   background-color: #121619;
   font-size: 0.8em;
   padding: 10px;
   text-align: center;
-  position: fixed;
+  position: absolute;
   bottom: 0;
-  height: 75px;
-  width: 100%;
+  left: 0;
+  right: 0;
+  height: 65px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.leftSideFooter{
-    color: white;
-    margin-left: 20px;
+.leftSideFooter {
+  color: white;
+  margin-left: 20px;
 }
 
 .rightSideFooter {
@@ -23,8 +29,8 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .footer{
-        font-size: 0.8em;
-        height: 50px;
-    }
+  .footer {
+    font-size: 0.8em;
+    height: 50px;
   }
+}
