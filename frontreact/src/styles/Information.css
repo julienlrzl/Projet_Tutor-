@@ -1,0 +1,32 @@
+.flex-containerInf {
+  display: flex;
+  margin: 1em;
+  margin-bottom: 0;
+  align-items: center;
+  min-height: 74vh;
+}
+
+#descriptionInf {
+  color: #d3d3d3;
+  padding-bottom: 10px;
+}
+
+#titleFilmInf {
+  color: black;
+}
+
+.informations {
+  padding-top: 20px;
+  font-weight: 700;
+  font-size: 1.25em;
+}
+
+.descriptioninformations {
+  padding-top: 10px;
+  font-weight: 400;
+  font-size: 0.95em;
+}
+
+.bellowIcon {
+  padding-top: 60px;
+}
