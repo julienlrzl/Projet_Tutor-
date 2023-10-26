@@ -12,7 +12,7 @@ function Navbar() {
   return (
     <div className="navbar">
       <div className="leftSide" id={openLinks ? "open" : "close"}>
-        <b className="title">NETFLIX</b>
+        <b className="title">MOVIELIKE</b>
         <div className="hiddenLinks">
           <Link to="/">SEARCH</Link>
           <Link to="/Summary">SUMMARY</Link>
