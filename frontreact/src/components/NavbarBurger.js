@@ -32,7 +32,7 @@ function NavbarBurger() {
         scrolling ? "scrolled" : ""
       }`}
     >
-      <div className={`navbarLogo ${scrolling ? "scrolled" : ""}`}>NETFLIX</div>
+      <div className={`navbarLogo ${scrolling ? "scrolled" : ""}`}>ONLYFILM</div>
       <ul className="navbarLinks">
         <li className="navbarItem slideInDown-1">
           <a href="/" className="navbarLink">
