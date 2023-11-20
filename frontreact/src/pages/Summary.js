@@ -9,6 +9,7 @@ import data from '../data/movie.json';
 
 function Summary() {
   const [showFirstLast, setShowFirstLast] = useState(true);
+  const movieData = data.movie[0];
 
   useEffect(() => {
     const handleResize = () => {
@@ -47,7 +48,7 @@ function Summary() {
           <h3>SUMMARY</h3>
         </div>
         <div id="titleFilm">
-          <h2>{data.movie[0].title}</h2>
+          <h2>{movieData.title}</h2>
         </div>
         <div>
           <FontAwesomeIcon
@@ -57,7 +58,7 @@ function Summary() {
           />
         </div>
         <div id="textMain">
-        {data.movie[0].Summary}
+        {movieData.Summary}
         </div>
         <Link to={"/Trailer"}>
           <button className="summary-button">
