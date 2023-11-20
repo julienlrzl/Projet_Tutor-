@@ -5,6 +5,7 @@
   flex-direction: row;
 }
 
+/* test de modif dans branche back */
 .navbar .leftSide {
   flex: 50%;
   display: flex;
