@@ -12,7 +12,7 @@ import {
 function Information() {
   return (
     <div className="flex-containerInf">
-      <div className="item auto">
+      <div className="item0 auto">
         <div id="descriptionInf">
           <h3>INFORMATION</h3>
         </div>

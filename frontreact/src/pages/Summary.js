@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import Image from "../assets/intouchable.png";
 import { Link } from "react-router-dom";
+import data from '../data/movie.json';
+
 
 function Summary() {
   const [showFirstLast, setShowFirstLast] = useState(true);
@@ -45,7 +47,7 @@ function Summary() {
           <h3>SUMMARY</h3>
         </div>
         <div id="titleFilm">
-          <h2>Intouchable</h2>
+          <h2>{data.movie[0].title}</h2>
         </div>
         <div>
           <FontAwesomeIcon
@@ -55,16 +57,7 @@ function Summary() {
           />
         </div>
         <div id="textMain">
-          In Paris, the aristocratic and intellectual Philippe is a quadriplegic
-          millionaire who is interviewing candidates for the position of his
-          carer, with his red-haired secretary Magalie. Out of the blue, Driss
-          cuts the line of candidates and brings a document from the Social
-          Security and asks Phillipe to sign it to prove that he is seeking a
-          job position so he can receive his unemployment benefit. Philippe
-          challenges Driss, offering him a trial period of one month to gain
-          experience helping him. Then Driss can decide whether he would like to
-          stay with him or not. Driss accepts the challenge and moves to the
-          mansion, changing the boring life of Phillipe and his employees.
+        {data.movie[0].Summary}
         </div>
         <Link to={"/Trailer"}>
           <button className="summary-button">

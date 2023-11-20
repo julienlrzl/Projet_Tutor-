@@ -1,0 +1,40 @@
+{
+  "movie": [
+    {
+      "id": 1,
+      "title": "Intouchable",
+      "Summary": "In Paris, the aristocratic and intellectual Philippe is a quadriplegic millionaire who is interviewing candidates for the position of his carer, with his red-haired secretary Magalie. Out of the blue, Driss cuts the line of candidates and brings a document from the Social Security and asks Phillipe to sign it to prove that he is seeking a job position so he can receive his unemployment benefit. Philippe challenges Driss, offering him a trial period of one month to gain experience helping him. Then Driss can decide whether he would like to stay with him or not. Driss accepts the challenge and moves to the mansion, changing the boring life of Phillipe and his employees.",
+      "MoviePoster": "../assets/intouchable.png",
+      "Actors": [
+        "Omar Sy",
+        "Olivier Nakache",
+        "Éric Toledano",
+        "François Cluzet",
+        "Audrey Fleurot",
+        "Joséphine de Meaux"
+      ],
+      "imageActors": [
+        "../assets/omarSy.png",
+        "../assets/nakache.png",
+        "../assets/toledano.png",
+        "../assets/cluzet.png",
+        "../assets/fleurot.png",
+        "../assets/deMeaux.png"
+      ],
+      "descriptionActors": [
+        "Omar Sy est un acteur, producteur de cinéma, réalisateur, scénariste et humoriste français, né le 20 janvier 1978 à Trappes. Il accède à la notoriété en formant, avec Fred Testot, le duo comique Omar et Fred.",
+        "Olivier Nakache, né le 14 avril 1973 à Suresnes, est un réalisateur, scénariste et producteur français. Il travaille en binôme avec Éric Toledano. Il est le frère de l'actrice et réalisatrice Géraldine Nakache.",
+        "Éric Toledano est un réalisateur, scénariste et dialoguiste français né le 3 juillet 1971 à Paris. Il travaille en binôme avec Olivier Nakache à la fois pour l'écriture et la réalisation.",
+        "François Cluzet est un acteur français, né le 21 septembre 1955 dans le 9ᵉ arrondissement de Paris.",
+        "Audrey Fleurot est une actrice française, née le 6 juillet 1977 à Mantes-la-Jolie. Elle se fait connaître, auprès du grand public, par le rôle de la Dame du lac dans Kaamelott. Elle enchaîne avec ceux de Josephine Karlsson dans Engrenages et de Hortense Larcher dans Un village français.",
+        "Joséphine de Meaux, née le 23 janvier 1977 à Boulogne-Billancourt, est une actrice française."
+      ],
+      "VideoId":"cXu2MhWYUuE",
+      "year": "2011",
+      "genre": ["comedy"],
+      "rating": "5",
+      "runtime":"1h52",
+      "DirectorWritterCast":["Olivier Nakache", "Éric Toledano"]
+    }
+  ]
+}

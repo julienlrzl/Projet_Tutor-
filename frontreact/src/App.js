@@ -6,6 +6,7 @@ import Summary from "./pages/Summary.js";
 import Actors from "./pages/Actors.js";
 import Trailer from "./pages/Trailer.js";
 import Information from "./pages/Information.js";
+import Proposals from "./pages/Proposals.js";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"; // Importe les éléments de React Router
 
 // Définition du composant principal de l'application
@@ -27,6 +28,7 @@ function App() {
           <Route path="/Actors" exact component={Actors} />
           <Route path="/Trailer" exact component={Trailer} />
           <Route path="/Information" exact component={Information} />
+          <Route path="/Proposals" exact component={Proposals} />
         </Switch>
         <Footer />
       </Router>
