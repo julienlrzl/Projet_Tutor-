@@ -6,6 +6,16 @@
   min-height: 74vh;
 }
 
+.item0 {
+  margin: 1em;
+  padding: 0.5em;
+  width: 110px;
+  min-width: 0;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  margin-top: 95px;
+}
+
 #descriptionInf {
   color: #d3d3d3;
   padding-bottom: 10px;
@@ -34,5 +44,19 @@
 @media screen and (max-width: 767px) {
   .flex-containerInf {
     flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .item0{
+    width: auto;
+  }
+
+  .item{
+    width: auto;
+    margin-top: auto;
+  }
+
+  .bellowIcon {
+    padding-top: 16px;
   }
 }
