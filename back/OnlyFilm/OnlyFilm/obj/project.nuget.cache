@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "fAQX95ad0MX+LX8QWHnu/aEg+gJCw6OpKDhMYnyiRw1/Pl0fAj3JUdYQXyzGY31Tl2MRz8XOCHwVC5Kz6dmkug==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\cedri\\Documents\\Polytech\\Semestre 1\\Projet\\Projet_Complet\\ptut_bd\\back\\OnlyFilm\\OnlyFilm\\OnlyFilm.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\cedri\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\cedri\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\cedri\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\cedri\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\cedri\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\cedri\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
