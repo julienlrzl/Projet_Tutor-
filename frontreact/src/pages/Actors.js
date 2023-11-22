@@ -1,3 +1,26 @@
+/**
+ * Page react Actors
+ *
+ * Ce composant affiche les informations sur les acteurs du film "Intouchable".
+ * Les détails sur les acteurs, tels que leur nom, photo et biographie, sont présentés dans des cartes.
+ *
+ * Auteur du Projet:
+ * - [Larzul Julien]
+ *
+ * Historique:
+ * - Date de création: [26/10/2023]
+ * - Dernière mise à jour: [22/11/2023]
+ *
+ * Description:
+ * - Cette page présente les acteurs présent dans le film
+ * - Chaque carte contient des informations sur un acteur spécifique.
+ * - Chaque carte contient une photo de profil des acteurs.
+ *
+ * Remarque:
+ * - On n'utilise pas la page car nous avons aucune informations sur les acteurs des films dans la base de donnée
+ *
+ */
+
 import React from "react";
 import "../styles/Actors.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

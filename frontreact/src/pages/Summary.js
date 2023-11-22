@@ -2,14 +2,15 @@ import React, { useState, useEffect } from "react";
 import "../styles/Summary.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
-import Image from "../assets/intouchable.png";
+import Image from "../assets/intouchable.png"; //test unique pour le front {tous les trucs consernant intouchable sont des essai}
 import { Link } from "react-router-dom";
-import data from '../data/movie.json';
+import data0 from '../data/movie.json';
+import data from '../data/moviefinal.json';
 
 
 function Summary() {
   const [showFirstLast, setShowFirstLast] = useState(true);
-  const movieData = data.movie[0];
+  const movieData = data;
 
   useEffect(() => {
     const handleResize = () => {
@@ -48,7 +49,7 @@ function Summary() {
           <h3>SUMMARY</h3>
         </div>
         <div id="titleFilm">
-          <h2>{movieData.title}</h2>
+          <h2>{data.title}</h2>
         </div>
         <div>
           <FontAwesomeIcon
@@ -58,7 +59,7 @@ function Summary() {
           />
         </div>
         <div id="textMain">
-        {movieData.Summary}
+        {data.summary}
         </div>
         <Link to={"/Trailer"}>
           <button className="summary-button">
@@ -68,7 +69,7 @@ function Summary() {
       </div>
       {showFirstLast && (
         <div className="item auto movie">
-          <img src={Image} alt="Affiche Film" id="movieImage" />
+          <img src={movieData.moviePoster} alt="Affiche Film" id="movieImage" />
         </div>
       )}
     </div>

@@ -1,22 +1,25 @@
 import React from "react";
-import YouTube from 'react-youtube';
+import YouTube from "react-youtube";
 import "../styles/Trailer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
+import data from "../data/moviefinal.json";
 
 function Trailer() {
-  const videoId = "cXu2MhWYUuE";
+  const movieData = data;
+  const videoId = movieData.youtubeTrailer;
+  const isTrailerAvailable = videoId && videoId.trim() !== "";
 
   const opts = {
     height: "360",
     width: "640",
     playerVars: {
-        rel:0,
-        fs:1,
-        iv_load_policy:3,
-        modestbranding:1,
-        showinfo:0,
-        controls:0,
+      rel: 0,
+      fs: 1,
+      iv_load_policy: 3,
+      modestbranding: 1,
+      showinfo: 0,
+      controls: 0,
     },
   };
 
@@ -40,7 +43,18 @@ function Trailer() {
         </div>
       </div>
       <div id="videoContainer">
-        <YouTube videoId={videoId} opts={opts} />
+        {isTrailerAvailable ? (
+          <YouTube videoId={videoId} opts={opts} />
+        ) : (
+          <iframe
+            width="640"
+            height="360"
+            src="https://www.youtube.com/embed/mo1_E5_oZ5E"
+            title="Next Video"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        )}
       </div>
     </div>
   );
