@@ -42,7 +42,8 @@
   position: absolute;
   margin-top: 0px;
   width: 322px;
-  height: 200px;
+  height: auto;
+  max-height: 200px;
   display: block;
   background-color: white;
   box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
