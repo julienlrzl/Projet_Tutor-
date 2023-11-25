@@ -39,6 +39,7 @@
 }
 
 .dataResult {
+  position: absolute;
   margin-top: 0px;
   width: 322px;
   height: 200px;
@@ -49,7 +50,7 @@
   overflow-y: auto;
 }
 
-  /* La ligne qui suit peut etre décommentée si on veut enlever la scroll-bar*/
+/* La ligne qui suit peut etre décommentée si on veut enlever la scroll-bar*/
 /*.dataResult::-webkit-scrollbar {
   display: none;
 }*/
