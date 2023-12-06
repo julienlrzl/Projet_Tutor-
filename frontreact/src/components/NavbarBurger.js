@@ -44,11 +44,13 @@ function NavbarBurger() {
             SUMMARY
           </a>
         </li>
+        {/*
         <li className="navbarItem slideInDown-3">
           <a href="/Actors" className="navbarLink">
             ACTORS
           </a>
         </li>
+        */}
         <li className="navbarItem slideInDown-4">
           <a href="/Trailer" className="navbarLink">
             TRAILER
