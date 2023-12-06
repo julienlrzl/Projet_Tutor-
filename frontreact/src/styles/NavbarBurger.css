@@ -17,6 +17,7 @@
 
 .navbarLink:hover {
   color: gray;
+  background-color: white;
 }
 
 .navbarLogo {
