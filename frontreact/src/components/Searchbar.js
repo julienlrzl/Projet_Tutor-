@@ -12,7 +12,7 @@ function SearchBar({data}) {
     fetch("https://localhost:7286/api/Movie")
     .then((response) => response.json)
     .then((json) => {
-      console.log(json)
+      console.log(json);
     });
   }
 
