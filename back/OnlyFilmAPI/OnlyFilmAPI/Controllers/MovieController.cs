@@ -50,75 +50,85 @@ namespace OnlyFilmAPI.Controllers
             return movieEntity;
         }
 
-        // PUT: api/Movie/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutMovieEntity(int id, MovieEntity movieEntity)
-        {
-            if (id != movieEntity.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(movieEntity).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!MovieEntityExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/Movie
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<MovieEntity>> PostMovieEntity(MovieEntity movieEntity)
-        {
-          if (_context.Movies == null)
-          {
-              return Problem("Entity set 'MovieContext.Movies'  is null.");
-          }
-            _context.Movies.Add(movieEntity);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetMovieEntity", new { id = movieEntity.Id }, movieEntity);
-        }
-
-        // DELETE: api/Movie/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteMovieEntity(int id)
+        [HttpGet("ByTitle/{title}")]
+        public async Task<ActionResult<IEnumerable<MovieEntity>>> GetMoviesByTitle(string title)
         {
             if (_context.Movies == null)
             {
                 return NotFound();
             }
-            var movieEntity = await _context.Movies.FindAsync(id);
+
+            var movies = await _context.Movies
+                .Where(m => m.Title.ToLower().Contains(title.ToLower()))
+                .Take(5)
+                .ToListAsync();
+
+            if (movies == null || !movies.Any())
+            {
+                return NotFound();
+            }
+
+            return movies;
+        }
+
+        [HttpGet("ByImdbId/{imdbId}")]
+        public async Task<ActionResult<MovieEntity>> GetMovieByImdbId(string imdbId)
+        {
+            if (_context.Movies == null)
+            {
+                return NotFound();
+            }
+
+            var movieEntity = await _context.Movies.FirstOrDefaultAsync(m => m.ImdbId == imdbId);
+
             if (movieEntity == null)
             {
                 return NotFound();
             }
 
-            _context.Movies.Remove(movieEntity);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            return movieEntity;
         }
+
+        [HttpGet("Recommendations/{id}")]
+        public async Task<ActionResult<IEnumerable<MovieEntity>>> GetRecommendations(int id)
+        {
+            var sourceMovie = await _context.Movies.FindAsync(id);
+
+            if (sourceMovie == null)
+            {
+                return NotFound();
+            }
+
+            // Utilisez l'interpolation de chaînes pour injecter les paramètres dans la requête SQL
+            var sqlQuery = $"SELECT * FROM movie " +
+                           $"WHERE Id != {id} AND " +
+                           $"Year IS NOT NULL AND " +
+                           $"Genres IS NOT NULL AND " +
+                           $"ABS(Year - {sourceMovie.Year.Value}) <= 2 " +
+                           $"ORDER BY RAND() " +
+                           $"LIMIT 5";
+
+            var recommendedMovies = await _context.Movies
+                .FromSqlRaw(sqlQuery)
+                .ToListAsync();
+
+            if (recommendedMovies == null || !recommendedMovies.Any())
+            {
+                return NotFound();
+            }
+
+            return recommendedMovies;
+        }
+
+
+
+
 
         private bool MovieEntityExists(int id)
         {
             return (_context.Movies?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+
+        
     }
 }
