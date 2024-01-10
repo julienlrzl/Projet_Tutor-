@@ -106,7 +106,7 @@ namespace OnlyFilmAPI.Controllers
                            $"Genres IS NOT NULL AND " +
                            $"ABS(Year - {sourceMovie.Year.Value}) <= 2 " +
                            $"ORDER BY RAND() " +
-                           $"LIMIT 5";
+                           $"LIMIT 6";
 
             var recommendedMovies = await _context.Movies
                 .FromSqlRaw(sqlQuery)

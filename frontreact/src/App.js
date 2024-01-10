@@ -24,7 +24,7 @@ function App() {
         <Switch>
           {/* définit la route pour search */}
           <Route path="/" exact component={Search} />
-          <Route path="/Summary" exact component={Summary} />
+          <Route path="/summary/:id" exact component={Summary} />
           <Route path="/Actors" exact component={Actors} />
           <Route path="/Trailer" exact component={Trailer} />
           <Route path="/Information" exact component={Information} />

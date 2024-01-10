@@ -1,25 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
+import axios from "axios";
+import { Link } from "react-router-dom";
 
-function SearchBar({data}) {
+function SearchBar() {
   const [searchText, setSearchText] = useState("");
   const [filteredData, setFilteredData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   const history = useHistory();
 
-  const handleInputChange = (e) => {
-    const searchedValue = e.target.value.replace(/[^\w\s]/gi, '').replace(' ', '');
-    setSearchText(e.target.value);
-    const dataFilter = data.movie.filter((value) => {
-      return value.title.toLowerCase().replace(' ', '').includes(searchedValue.toLowerCase());
-    })
-
-    if (searchedValue === "") {
-      setFilteredData([]);
+  useEffect(() => {
+    if (searchText.length >= 3) { 
+      fetchMovies(searchText);
     } else {
-      setFilteredData(dataFilter);
+      setFilteredData([]);
     }
+  }, [searchText]);
+
+  const fetchMovies = async (query) => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      // Utilisez l'URL avec votre terme de recherche
+      const response = await axios.get(`https://localhost:7286/api/Movie/ByTitle/${query}`);
+      setFilteredData(response.data);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    setSearchText(e.target.value);
   };
 
   const handleKeyPress = (e) => {
@@ -40,28 +56,32 @@ function SearchBar({data}) {
       <div className="search">
         <div className="searchInputs">
           <input
-          className="input-container"
-          type="text"
-          placeholder="Rechercher votre film ..."
-          value={searchText}
-          onChange={handleInputChange}
-          onKeyPress={handleKeyPress}
+            className="input-container"
+            type="text"
+            placeholder="Rechercher votre film ..."
+            value={searchText}
+            onChange={handleInputChange}
+            onKeyPress={handleKeyPress}
           />
-          <div className="searchIcon"> 
-            {filteredData.length === 0 ? <SearchIcon id="searchWord"/> : <CloseIcon id="clearBar" onClick={clearFilter}/>}
+          <div className="searchIcon">
+            {filteredData.length === 0 ? (
+              <SearchIcon id="searchWord" />
+            ) : (
+              <CloseIcon id="clearBar" onClick={clearFilter} />
+            )}
           </div>
         </div>
         {filteredData.length !== 0 && (
-        <div className="dataResult">
-          {filteredData.slice(0,10).map((value, key) => {
-            return (
-              <a  className="dataList"
-                  href="/Summary"> 
-                <p> {value.title}</p>
-                </a>
-             );
-          })}
-        </div>
+          <div className="dataResult">
+            {filteredData.slice(0, 10).map((value, key) => {
+              return (
+                // Utilisez Link pour la navigation
+                <Link to={`/Summary/${value.imdbId}`} className="dataList">
+                  <p>{value.title}</p>
+                </Link>
+              );
+            })}
+          </div>
         )}
       </div>
     </div>

@@ -12,9 +12,18 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<MovieContext>(
     options =>
+    {
+        options.UseMySql(builder.Configuration.GetConnectionString("MovieBD"),
+        Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.4.24-MariaDB"));
+    });
+
+// Ajoutez la configuration CORS ici
+builder.Services.AddCors(options =>
 {
-    options.UseMySql(builder.Configuration.GetConnectionString("MovieBD"),
-    Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.4.24-MariaDB"));
+    options.AddPolicy("AllowSpecificOrigin",
+        builder => builder.WithOrigins("http://localhost:3001") // URL de votre client React
+                          .AllowAnyMethod()
+                          .AllowAnyHeader());
 });
 
 var app = builder.Build();
@@ -27,6 +36,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Placez UseCors avant UseAuthorization
+app.UseCors("AllowSpecificOrigin");
 
 app.UseAuthorization();
 
