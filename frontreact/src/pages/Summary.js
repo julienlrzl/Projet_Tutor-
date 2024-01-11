@@ -5,11 +5,13 @@ import "../styles/Summary.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import Cookies from 'js-cookie';
 
 
 
 function Summary() {
   const [showFirstLast, setShowFirstLast] = useState(true);
+  console.log('Cookie value:', );
 
   const [movie, setMovie] = useState(null); // État pour stocker les données du film
   const [loading, setLoading] = useState(true); // État pour le chargement
@@ -19,7 +21,7 @@ function Summary() {
   useEffect(() => {
     const fetchMovieData = async () => {
       try {
-        const response = await axios.get(`https://localhost:7286/api/Movie/ByImdbId/${id}`);
+        const response = await axios.get(`https://localhost:7286/api/Movie/ByImdbId/${Cookies.get('lastSelectedMovieId')}`);
         setMovie(response.data); // Met à jour l'état avec les données du film
         setLoading(false);
       } catch (err) {

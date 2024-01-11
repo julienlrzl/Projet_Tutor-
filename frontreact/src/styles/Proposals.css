@@ -24,6 +24,22 @@
   height: auto;
 }
 
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer; 
+}
+
+.column img {
+  margin-bottom: 10px; 
+}
+
+.movie-title {
+  text-align: center; 
+}
+
+
 @media screen and (max-width: 767px) {
   .column {
     flex: 100%;

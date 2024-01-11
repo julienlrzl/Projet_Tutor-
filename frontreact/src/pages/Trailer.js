@@ -4,12 +4,17 @@ import "../styles/Trailer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import data from "../data/moviefinal.json";
+import Cookies from 'js-cookie';
+
 
 function Trailer() {
   const movieData = data;
   const videoId = movieData.youtubeTrailer;
   const isTrailerAvailable = videoId && videoId.trim() !== "";
 
+  console.log('Cookie value:', Cookies.get('lastSelectedMovieId'));
+
+  
   const opts = {
     height: "360",
     width: "640",

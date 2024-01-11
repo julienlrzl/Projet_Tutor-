@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/Information.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -8,11 +8,44 @@ import {
   faStar,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
-import data from "../data/moviefinal.json";
+import axios from "axios";
+import Cookies from 'js-cookie';
 
 function Information() {
-  const movieData = data;
+  const [movieData, setMovieData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
+  
+
+  useEffect(() => {
+    const fetchMovieData = async () => {
+      try {
+        const response = await axios.get(`https://localhost:7286/api/Movie/ByImdbId/${Cookies.get('lastSelectedMovieId')}`);
+        setMovieData(response.data);
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchMovieData();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  if (!movieData) {
+    return <div>No movie data found</div>;
+  }
+
+  // Votre logique d'affichage ici
   const isDirectorAvailable =
     movieData.director !== null && movieData.director.trim() !== "";
   const isWritersAvailable =
@@ -24,6 +57,8 @@ function Information() {
 
   const runtime = movieData.runtime !== 0 ? movieData.runtime : "unknown numbers of";
 
+
+  
   return (
     <div className="flex-containerInf">
       <div className="item0 auto">
@@ -51,7 +86,7 @@ function Information() {
         </div>
         <div className="informations">Year</div>
         <div className="descriptioninformations">
-          The film Intouchable was released in {data.year}.
+          The film {movieData.title} was released in {movieData.year}.
         </div>
         <div className="bellowIcon">
           <FontAwesomeIcon
@@ -62,7 +97,7 @@ function Information() {
         </div>
         <div className="informations">Genre</div>
         <div className="descriptioninformations">
-          Intouchable is a {data.genres}.
+        {movieData.title} is a {movieData.genres}.
         </div>
       </div>
       <div className="item auto">
@@ -75,10 +110,10 @@ function Information() {
         </div>
         <div className="informations">Rating and Runtime</div>
         <div className="descriptioninformations rating">
-          {data.title} have earned{" "}
+          {movieData.title} have earned{" "}
           {isRatingAvialable ? (
             <>
-              {data.rating} <br />
+              {movieData.rating} <br />
             </>
           ) : (
             "an unknown numbers of"
@@ -96,19 +131,19 @@ function Information() {
         <div className="descriptioninformations">
           {isDirectorAvailable ? (
             <>
-              {data.director}, <br />
+              {movieData.director}, <br />
             </>
           ) : (
             "No director listed, "
           )}
           {isWritersAvailable ? (
             <>
-              {data.writers}, <br />
+              {movieData.writers}, <br />
             </>
           ) : (
             "no writers entered, "
           )}
-          {isCastAvailable ? <>{data.cast}</> : "no cast entered"}
+          {isCastAvailable ? <>{movieData.cast}</> : "no cast entered"}
           {!isDirectorAvailable &&
             !isWritersAvailable &&
             !isCastAvailable &&

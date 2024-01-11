@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Cookies from 'js-cookie';
 
 function SearchBar() {
   const [searchText, setSearchText] = useState("");
@@ -11,20 +12,31 @@ function SearchBar() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const history = useHistory();
+  const wrapperRef = useRef(null);
 
   useEffect(() => {
-    if (searchText.length >= 3) { 
+    if (searchText.length >= 3) {
       fetchMovies(searchText);
     } else {
       setFilteredData([]);
     }
+
+    function handleClickOutside(event) {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        setFilteredData([]);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, [searchText]);
 
   const fetchMovies = async (query) => {
     setIsLoading(true);
     setError(null);
     try {
-      // Utilisez l'URL avec votre terme de recherche
       const response = await axios.get(`https://localhost:7286/api/Movie/ByTitle/${query}`);
       setFilteredData(response.data);
     } catch (error) {
@@ -40,10 +52,12 @@ function SearchBar() {
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
-      // L'utilisateur a appuyé sur la touche Entrée, effectuez la recherche et redirigez vers la page Summary.
-      // Vous pouvez également ajouter ici une logique de recherche si nécessaire.
       history.push("/Summary");
     }
+  };
+
+  const handleLinkClick = (imdbId) => {
+    Cookies.set('lastSelectedMovieId', imdbId, { expires: 7 });
   };
 
   const clearFilter = () => {
@@ -52,7 +66,7 @@ function SearchBar() {
   }
 
   return (
-    <div>
+    <div ref={wrapperRef}>
       <div className="search">
         <div className="searchInputs">
           <input
@@ -75,8 +89,7 @@ function SearchBar() {
           <div className="dataResult">
             {filteredData.slice(0, 10).map((value, key) => {
               return (
-                // Utilisez Link pour la navigation
-                <Link to={`/Summary/${value.imdbId}`} className="dataList">
+                <Link to={`/Summary`} className="dataList" onClick={() => handleLinkClick(value.imdbId)}>
                   <p>{value.title}</p>
                 </Link>
               );

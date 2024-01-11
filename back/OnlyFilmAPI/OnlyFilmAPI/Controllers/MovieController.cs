@@ -90,23 +90,21 @@ namespace OnlyFilmAPI.Controllers
         }
 
         [HttpGet("Recommendations/{id}")]
-        public async Task<ActionResult<IEnumerable<MovieEntity>>> GetRecommendations(int id)
+        public async Task<ActionResult<IEnumerable<MovieEntity>>> GetRecommendations(string id)
         {
-            var sourceMovie = await _context.Movies.FindAsync(id);
+            var sourceMovie = await _context.Movies.FirstOrDefaultAsync(m => m.ImdbId == id);
 
             if (sourceMovie == null)
             {
                 return NotFound();
             }
 
-            // Utilisez l'interpolation de chaînes pour injecter les paramètres dans la requête SQL
-            var sqlQuery = $"SELECT * FROM movie " +
-                           $"WHERE Id != {id} AND " +
-                           $"Year IS NOT NULL AND " +
-                           $"Genres IS NOT NULL AND " +
-                           $"ABS(Year - {sourceMovie.Year.Value}) <= 2 " +
-                           $"ORDER BY RAND() " +
-                           $"LIMIT 6";
+            var sqlQuery = $"SELECT m2.* " + // Modifié pour sélectionner toutes les colonnes
+               $"FROM movie m1 " +
+               $"JOIN movie m2 ON m1.id != m2.id AND m2.genres LIKE CONCAT('%', m1.genres, '%') " +
+               $"WHERE m1.imdb_id = '{id}' " +
+               $"LIMIT 7";
+
 
             var recommendedMovies = await _context.Movies
                 .FromSqlRaw(sqlQuery)
