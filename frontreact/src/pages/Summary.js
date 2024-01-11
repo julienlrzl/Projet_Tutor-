@@ -75,7 +75,7 @@ function Summary() {
         <div id="textMain">
         {movie.summary}
         </div>
-        <Link to={"/Trailer"}>
+        <Link to={`/Trailer/${movie.imdbId}`}>
           <button className="summary-button">
             <span>WATCH TRAILER</span>
           </button>
@@ -93,3 +93,4 @@ function Summary() {
 
 
 export default Summary;
+

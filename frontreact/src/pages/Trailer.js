@@ -1,14 +1,50 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import YouTube from "react-youtube";
 import "../styles/Trailer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import data from "../data/moviefinal.json";
+import { useParams } from "react-router-dom"; 
+import axios from "axios";
 
 function Trailer() {
+  const [showFirstLast, setShowFirstLast] = useState(true);
+
+  const [movie, setMovie] = useState(null); // État pour stocker les données du film
+  const [loading, setLoading] = useState(true); // État pour le chargement
+  const [error, setError] = useState(null); // État pour gérer les erreurs
+  const { id } = useParams(); // Récupère l'ID IMDb de l'URL
+
   const movieData = data;
   const videoId = movieData.youtubeTrailer;
   const isTrailerAvailable = videoId && videoId.trim() !== "";
+  useEffect(() => {
+    const fetchMovieData = async () => {
+      try {
+        const response = await axios.get(`https://localhost:7286/api/Movie/ByImdbId/${id}`);
+        console.log(response.data); // Ceci imprimera les données reçues dans la console du navigateur
+        setMovie(response.data); // Met à jour l'état avec les données du film
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchMovieData();
+  }, [id]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  if (!movie) {
+    return <div>No movie data found</div>;
+  }
 
   const opts = {
     height: "360",
@@ -31,7 +67,7 @@ function Trailer() {
             <h3>TRAILER</h3>
           </div>
           <div id="titleFilm">
-            <h2>Intouchable</h2>
+            <h2>{movie.title}</h2>
           </div>
           <div id="minus">
             <FontAwesomeIcon
@@ -42,14 +78,14 @@ function Trailer() {
           </div>
         </div>
       </div>
-      <div id="videoContainer">
+      <div id="videoContainer"> 
         {isTrailerAvailable ? (
-          <YouTube videoId={videoId} opts={opts} />
+          <YouTube videoId={movie.youtubeTrailer} opts={opts} />
         ) : (
           <iframe
             width="640"
             height="360"
-            src="https://www.youtube.com/embed/mo1_E5_oZ5E"
+            src={`https://www.youtube.com/embed/${movie.youtubeTrailer}`}
             title="Next Video"
             frameborder="0"
             allowfullscreen
