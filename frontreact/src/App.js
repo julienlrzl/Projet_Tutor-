@@ -26,7 +26,7 @@ function App() {
           <Route path="/" exact component={Search} />
           <Route path="/summary" exact component={Summary} />
           <Route path="/Actors" exact component={Actors} />
-          <Route path="/Trailer/:id" exact component={Trailer} />
+          <Route path="/Trailer" exact component={Trailer} />
           <Route path="/Information" exact component={Information} />
           <Route path="/Proposals" exact component={Proposals} />
         </Switch>

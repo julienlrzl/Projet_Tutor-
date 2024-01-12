@@ -4,13 +4,10 @@ import "../styles/Trailer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import data from "../data/moviefinal.json";
-<<<<<<< HEAD
 import Cookies from 'js-cookie';
 
-=======
 import { useParams } from "react-router-dom"; 
 import axios from "axios";
->>>>>>> 69614f0db9fff9528b08ee06938b84311f475b0a
 
 function Trailer() {
   const [showFirstLast, setShowFirstLast] = useState(true);
@@ -26,8 +23,18 @@ function Trailer() {
   useEffect(() => {
     const fetchMovieData = async () => {
       try {
-        const response = await axios.get(`https://localhost:7286/api/Movie/ByImdbId/${id}`);
-        console.log(response.data); // Ceci imprimera les données reçues dans la console du navigateur
+        // Récupération de l'ID du dernier film sélectionné depuis le cookie
+        const lastSelectedMovieId = Cookies.get('lastSelectedMovieId');
+  
+        if (!lastSelectedMovieId) {
+          setError('No movie ID found in cookies');
+          setLoading(false);
+          return;
+        }
+  
+        // Requête à l'API avec l'ID récupéré du cookie
+        const response = await axios.get(`https://localhost:7286/api/Movie/ByImdbId/${lastSelectedMovieId}`);
+        console.log(response.data); // Imprime les données dans la console du navigateur
         setMovie(response.data); // Met à jour l'état avec les données du film
         setLoading(false);
       } catch (err) {
@@ -35,9 +42,9 @@ function Trailer() {
         setLoading(false);
       }
     };
-
+  
     fetchMovieData();
-  }, [id]);
+  }, []); // Le tableau de dépendances vide signifie que cet effet ne s'exécute qu'une fois, au montage du composant
 
   if (loading) {
     return <div>Loading...</div>;
@@ -51,7 +58,7 @@ function Trailer() {
     return <div>No movie data found</div>;
   }
 
-  console.log('Cookie value:', Cookies.get('lastSelectedMovieId'));
+
 
   
   const opts = {
