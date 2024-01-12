@@ -21,8 +21,12 @@ builder.Services.AddDbContext<MovieContext>(
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin",
+<<<<<<< HEAD
         builder => builder.WithOrigins("http://localhost:3000") // URL du client React
 
+=======
+        builder => builder.WithOrigins("http://localhost:3000") // URL de votre client React
+>>>>>>> fb930acd804c3e75a8ecb186671c0acd09923e74
                           .AllowAnyMethod()
                           .AllowAnyHeader());
 });

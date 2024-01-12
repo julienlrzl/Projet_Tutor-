@@ -4,13 +4,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import Cookies from 'js-cookie';
-import { useHistory } from 'react-router-dom'; // Import useHistory de react-router-dom
+import { useHistory } from 'react-router-dom'; 
 
 function Proposals() {
   const [recommendations, setRecommendations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const history = useHistory(); // Pour la redirection
+  const history = useHistory(); 
 
   const checkImage = (url) => {
     return new Promise((resolve, reject) => {
