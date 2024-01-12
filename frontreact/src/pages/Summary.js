@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom"; // Assurez-vous d'importer useParams ici
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import "../styles/Summary.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,22 +7,18 @@ import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Cookies from 'js-cookie';
 
-
-
 function Summary() {
   const [showFirstLast, setShowFirstLast] = useState(true);
-  console.log('Cookie value:', );
-
-  const [movie, setMovie] = useState(null); // État pour stocker les données du film
-  const [loading, setLoading] = useState(true); // État pour le chargement
-  const [error, setError] = useState(null); // État pour gérer les erreurs
-  const { id } = useParams(); // Récupère l'ID IMDb de l'URL
+  const [movie, setMovie] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchMovieData = async () => {
       try {
         const response = await axios.get(`https://localhost:7286/api/Movie/ByImdbId/${Cookies.get('lastSelectedMovieId')}`);
-        setMovie(response.data); // Met à jour l'état avec les données du film
+        setMovie(response.data);
         setLoading(false);
       } catch (err) {
         setError(err.message);
@@ -32,6 +28,10 @@ function Summary() {
 
     fetchMovieData();
   }, [id]);
+
+  const handleImageError = () => {
+    setMovie({ ...movie, moviePoster: 'https://i.imgur.com/Uqb5kkn.png' });
+  };
 
   if (loading) {
     return <div>Loading...</div>;
@@ -75,9 +75,9 @@ function Summary() {
           />
         </div>
         <div id="textMain">
-        {movie.summary}
+          {movie.summary}
         </div>
-        <Link to={`/Trailer/${movie.imdbId}`}>
+        <Link to={`/Trailer`}>
           <button className="summary-button">
             <span>WATCH TRAILER</span>
           </button>
@@ -85,14 +85,16 @@ function Summary() {
       </div>
       {showFirstLast && (
         <div className="item auto movie">
-          <img src={movie.moviePoster} alt="Affiche Film" id="movieImage" />
+          <img
+            src={movie.moviePoster}
+            alt="Affiche Film"
+            id="movieImage"
+            onError={handleImageError} // Gérer l'erreur de chargement de l'image
+          />
         </div>
       )}
     </div>
   );
 }
 
-
-
 export default Summary;
-
